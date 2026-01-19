@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Siglab | Trade with Confidence</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="brand-mark">SLX</span>
+          <span class="brand-name">Siglab</span>
+        </div>
+        <nav class="site-nav">
+          <a href="#integration">Integration</a>
+          <a href="#portal">Portal</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#subscriptions">Subscriptions</a>
+        </nav>
+        <button class="cta-button" type="button">Request early access</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="slx-hero-reinforce">
+            <h2 class="slx-hero-reinforce-title">
+              Trade with confidence and
+              <span>clear market structure</span>
+            </h2>
+
+            <ul class="slx-hero-reinforce-points">
+              <li class="slx-live">Clear Forex signals with live status</li>
+              <li class="slx-live">Chart context built into every setup</li>
+              <li class="slx-live">Simple access for everyday traders</li>
+            </ul>
+          </div>
+
+          <p class="hero-subtitle">
+            Build a free, lightweight trading home that is ready for deeper integration with local Python data pipelines,
+            interactive portals, and subscription-ready offerings.
+          </p>
+
+          <div class="hero-actions">
+            <button class="cta-button" type="button">Launch free demo</button>
+            <button class="ghost-button" type="button">View sample dashboard</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="integration" class="section">
+        <div class="container section-grid">
+          <div>
+            <h3>Local Python data integration</h3>
+            <p>
+              Connect to your on-prem or local Python data source with a secure connector layer. Stream signals,
+              handle live status updates, and keep your models close to the market.
+            </p>
+            <ul class="feature-list">
+              <li>REST-ready endpoints for local Flask/FastAPI services.</li>
+              <li>WebSocket-friendly slots for streaming market events.</li>
+              <li>Data caching controls to keep dashboards lightning fast.</li>
+            </ul>
+            <div class="integration-notice">
+              <h4>Drop in your own data paths</h4>
+              <p>
+                Update the endpoints in <strong>app.js</strong> with your local routes when you are ready. The dashboard
+                will automatically switch from mock data to your live feed once the API responds.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Integration starter</h4>
+            <p>Ship data from your local Python environment into the dashboard.</p>
+            <div class="code-block">
+              <code>
+                GET /api/signals/live<br />
+                POST /api/signals/context<br />
+                WS /stream/live-status
+              </code>
+            </div>
+            <div class="code-block">
+              <code>
+                GET /api/user/tiers<br />
+                GET /api/portfolio/summary<br />
+                POST /api/auth/login
+              </code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portal" class="section alt">
+        <div class="container section-grid">
+          <div class="card">
+            <h4>Interactive portal foundation</h4>
+            <p>
+              Deliver a responsive portal with authentication-ready hooks, so users can save setups, follow signals,
+              and personalize dashboards.
+            </p>
+            <button class="ghost-button" type="button">Explore portal flow</button>
+          </div>
+          <div>
+            <h3>Interactive portal experience</h3>
+            <p>
+              Build a home for traders to explore strategies, annotate charts, and review performance history. We
+              designed this layout to be extended into a full portal without heavy rework.
+            </p>
+            <ul class="feature-list">
+              <li>User profiles, watchlists, and saved setups.</li>
+              <li>Context-rich chart stories per signal.</li>
+              <li>Role-based access for teams and mentors.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="container portal-preview">
+          <div class="card portal-card">
+            <h4>Member portal preview</h4>
+            <p>Showcase what a signed-in trader would see. Replace with real auth later.</p>
+            <div class="portal-grid">
+              <div class="portal-panel">
+                <h5>Profile summary</h5>
+                <p>Welcome back, Trader. Your last session was 2h ago.</p>
+              </div>
+              <div class="portal-panel">
+                <h5>Watchlist</h5>
+                <ul>
+                  <li>EUR/USD breakout watch</li>
+                  <li>GBP/JPY session bias</li>
+                  <li>Gold structure sweep</li>
+                </ul>
+              </div>
+              <div class="portal-panel">
+                <h5>Alerts</h5>
+                <ul>
+                  <li>2 new live signals</li>
+                  <li>1 setup awaiting confirmation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dashboard" class="section">
+        <div class="container">
+          <h3>Dashboard-ready layout</h3>
+          <p class="section-intro">
+            Launch an interactive dashboard in minutes. Drop in widgets for live positions, performance analytics,
+            and market structure updates.
+          </p>
+          <div class="dashboard-grid">
+            <div class="card">
+              <h4>Live status</h4>
+              <p>Always-on pulse indicators for signals and alerts.</p>
+              <div class="status-pill" data-live-status>Waiting for live feed</div>
+            </div>
+            <div class="card">
+              <h4>Signal journal</h4>
+              <p>Archive every setup, tag outcomes, and export CSV.</p>
+              <div class="signal-count">
+                <span>Signals today</span>
+                <strong data-signal-count>--</strong>
+              </div>
+            </div>
+            <div class="card">
+              <h4>Market structure</h4>
+              <p>Map key levels with a built-in context panel.</p>
+              <div class="signal-tags" data-market-tags></div>
+            </div>
+          </div>
+          <div class="card dashboard-table">
+            <div class="table-header">
+              <h4>Live signal feed</h4>
+              <span class="table-status" data-feed-status>Mock data</span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Pair</th>
+                  <th>Setup</th>
+                  <th>Bias</th>
+                  <th>Status</th>
+                  <th>Updated</th>
+                </tr>
+              </thead>
+              <tbody data-signal-table></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="subscriptions" class="section alt">
+        <div class="container section-grid">
+          <div>
+            <h3>Subscriptions & monetization</h3>
+            <p>
+              Offer free and premium tiers with clear conversion paths. Add billing, gated content, or community
+              access when you're ready.
+            </p>
+            <ul class="feature-list">
+              <li>Tiered access controls and trial-ready onboarding.</li>
+              <li>Stripe-ready checkout slots for subscriptions.</li>
+              <li>Email workflows for signals, summaries, and upsells.</li>
+            </ul>
+          </div>
+          <div class="card pricing">
+            <h4>Suggested tiers</h4>
+            <div class="pricing-row">
+              <span>Starter</span>
+              <span>Free</span>
+            </div>
+            <div class="pricing-row">
+              <span>Pro Signals</span>
+              <span>$29/mo</span>
+            </div>
+            <div class="pricing-row">
+              <span>Elite Desk</span>
+              <span>$79/mo</span>
+            </div>
+            <button class="cta-button" type="button">Enable subscriptions</button>
+          </div>
+        </div>
+        <div class="container billing-grid">
+          <div class="card">
+            <h4>Subscription hooks</h4>
+            <p>Connect Stripe or your billing provider with minimal front-end updates.</p>
+            <ul class="feature-list">
+              <li>Checkout button wiring for tiered access.</li>
+              <li>Webhook-ready routes for entitlement syncing.</li>
+              <li>Usage gates for premium dashboards.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Email & community</h4>
+            <p>Keep members engaged with automated updates.</p>
+            <ul class="feature-list">
+              <li>Daily signal summaries and trade recaps.</li>
+              <li>Invite-only rooms and mentoring tiers.</li>
+              <li>In-app announcements and push alerts.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <strong>Siglab</strong>
+          <p>Free trading site with extensible integrations.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#integration">Integration</a>
+          <a href="#portal">Portal</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#subscriptions">Subscriptions</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
