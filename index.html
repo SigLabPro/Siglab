@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Siglab | Trade with Confidence</title>
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -64,6 +65,13 @@
               <li>WebSocket-friendly slots for streaming market events.</li>
               <li>Data caching controls to keep dashboards lightning fast.</li>
             </ul>
+            <div class="integration-notice">
+              <h4>Drop in your own data paths</h4>
+              <p>
+                Update the endpoints in <strong>app.js</strong> with your local routes when you are ready. The dashboard
+                will automatically switch from mock data to your live feed once the API responds.
+              </p>
+            </div>
           </div>
           <div class="card">
             <h4>Integration starter</h4>
@@ -73,6 +81,13 @@
                 GET /api/signals/live<br />
                 POST /api/signals/context<br />
                 WS /stream/live-status
+              </code>
+            </div>
+            <div class="code-block">
+              <code>
+                GET /api/user/tiers<br />
+                GET /api/portfolio/summary<br />
+                POST /api/auth/login
               </code>
             </div>
           </div>
@@ -102,6 +117,33 @@
             </ul>
           </div>
         </div>
+        <div class="container portal-preview">
+          <div class="card portal-card">
+            <h4>Member portal preview</h4>
+            <p>Showcase what a signed-in trader would see. Replace with real auth later.</p>
+            <div class="portal-grid">
+              <div class="portal-panel">
+                <h5>Profile summary</h5>
+                <p>Welcome back, Trader. Your last session was 2h ago.</p>
+              </div>
+              <div class="portal-panel">
+                <h5>Watchlist</h5>
+                <ul>
+                  <li>EUR/USD breakout watch</li>
+                  <li>GBP/JPY session bias</li>
+                  <li>Gold structure sweep</li>
+                </ul>
+              </div>
+              <div class="portal-panel">
+                <h5>Alerts</h5>
+                <ul>
+                  <li>2 new live signals</li>
+                  <li>1 setup awaiting confirmation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="dashboard" class="section">
@@ -115,15 +157,39 @@
             <div class="card">
               <h4>Live status</h4>
               <p>Always-on pulse indicators for signals and alerts.</p>
+              <div class="status-pill" data-live-status>Waiting for live feed</div>
             </div>
             <div class="card">
               <h4>Signal journal</h4>
               <p>Archive every setup, tag outcomes, and export CSV.</p>
+              <div class="signal-count">
+                <span>Signals today</span>
+                <strong data-signal-count>--</strong>
+              </div>
             </div>
             <div class="card">
               <h4>Market structure</h4>
               <p>Map key levels with a built-in context panel.</p>
+              <div class="signal-tags" data-market-tags></div>
             </div>
+          </div>
+          <div class="card dashboard-table">
+            <div class="table-header">
+              <h4>Live signal feed</h4>
+              <span class="table-status" data-feed-status>Mock data</span>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Pair</th>
+                  <th>Setup</th>
+                  <th>Bias</th>
+                  <th>Status</th>
+                  <th>Updated</th>
+                </tr>
+              </thead>
+              <tbody data-signal-table></tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -156,6 +222,27 @@
               <span>Elite Desk</span>
               <span>$79/mo</span>
             </div>
+            <button class="cta-button" type="button">Enable subscriptions</button>
+          </div>
+        </div>
+        <div class="container billing-grid">
+          <div class="card">
+            <h4>Subscription hooks</h4>
+            <p>Connect Stripe or your billing provider with minimal front-end updates.</p>
+            <ul class="feature-list">
+              <li>Checkout button wiring for tiered access.</li>
+              <li>Webhook-ready routes for entitlement syncing.</li>
+              <li>Usage gates for premium dashboards.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Email & community</h4>
+            <p>Keep members engaged with automated updates.</p>
+            <ul class="feature-list">
+              <li>Daily signal summaries and trade recaps.</li>
+              <li>Invite-only rooms and mentoring tiers.</li>
+              <li>In-app announcements and push alerts.</li>
+            </ul>
           </div>
         </div>
       </section>
